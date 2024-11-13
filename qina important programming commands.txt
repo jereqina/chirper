@@ -1,0 +1,38 @@
+ina Jere
+C/O Luwis Machilika
+NBS Bank PLC
+P.O. Box 32251
+Blantyre 3, Malawi
+Cell: +265 884 157 484 / +265 991 169 715
+Email: jereqina@gmail.com
+
+[Date]
+
+[Hiring Manager’s Name]
+[Company's Name]
+[Company’s Address]
+[City, Zip Code]
+
+Dear [Hiring Manager’s Name],
+
+I am writing to express my interest in the System Developer position at [Company's Name]. With a Bachelor’s Degree in Management Information Systems from the University of Malawi and hands-on experience as a system developer at Lync Systems, I am well-prepared to bring my technical expertise and strong problem-solving abilities to your team.
+
+In my previous role, I honed my skills in developing applications using the Laravel framework, a competency that I believe aligns well with the technical needs of this position. My experience spans across system development, network management, and database management, including SQL Server and MySQL/MariaDB. I am also skilled in a range of programming languages, such as PHP, HTML, CSS, JavaScript, and C++. My familiarity with both Windows and Linux server management further strengthens my adaptability in handling diverse development environments.
+
+Beyond my technical skills, I am an energetic and motivated professional who values effective communication and teamwork. I take pride in my ability to collaborate efficiently, manage time effectively, and perform well under pressure. My passion for continuous learning drives me to stay updated on industry trends, ensuring that I bring both skill and innovation to my work.
+
+I am excited about the opportunity to contribute to [Company's Name] and am confident that my background and commitment make me a strong candidate for this role. Thank you for considering my application. I am looking forward to the opportunity to discuss how my skills and experiences align with your team’s needs.
+
+Warm regards,
+Qina Jere
+
+@Focus@1234
+
+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
+
+
+
+  git config --global user.email "jereqina@gmail.com"
+  git config --global user.name "jereqina"
+
+git add .
