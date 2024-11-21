@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Product</title>
+  <title>Edit Supplier</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -37,7 +37,7 @@
             <div class="hidden md:flex space-x-4">
               <a href="{{ route('products.index') }}" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Products</a>
               <a href="#" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Orders</a>
-              <a href="#" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Suppliers</a>
+              <a href="{{ route('suppliers.index') }}" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Suppliers</a>
               <a href="#" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Categories</a>
               <a href="#" class="nav-link rounded-md px-3 py-2 text-sm font-bold text-white hover:bg-gray-700">Transactions</a>
             </div>
@@ -47,7 +47,7 @@
               <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                 <span class="sr-only">View notifications</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
                 </svg>
               </button>
             </div>
@@ -61,7 +61,7 @@
       <div class="w-full max-w-4xl bg-white p-8 shadow-lg rounded-lg border border-gray-200">
         <!-- Form Header -->
         <div class="mb-8">
-          <h2 class="text-2xl font-bold text-indigo-700 text-center">Add Product Form</h2>
+          <h2 class="text-2xl font-bold text-indigo-700 text-center">Edit Supplier Form</h2>
         </div>
 
         @if (session('success'))
@@ -72,39 +72,40 @@
         @endif
 
         <!-- Form Layout -->
-        <form action="{{ route('products.store') }}" method="POST" class="space-y-6">
+        <form action="{{ route('suppliers.update', $supplier->SupplierID) }}" method="POST" class="space-y-6">
           @csrf
+          @method('PUT')
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Product Name -->
+            <!-- Supplier Name -->
             <div class="form-group">
-              <label for="productName" class="block text-lg font-medium text-gray-700">Product Name</label>
-              <input type="text" id="productName" name="ProductName" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
+              <label for="supplierName" class="block text-lg font-medium text-gray-700">Supplier Name</label>
+              <input type="text" id="supplierName" name="SupplierName" value="{{ $supplier->SupplierName }}" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
             </div>
 
-            <!-- Unit Price -->
+            <!-- Contact Email -->
             <div class="form-group">
-              <label for="unitPrice" class="block text-lg font-medium text-gray-700">Unit Price</label>
-              <input type="number" id="unitPrice" name="UnitPrice" step="0.01" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
+              <label for="contactEmail" class="block text-lg font-medium text-gray-700">Contact Email</label>
+              <input type="email" id="contactEmail" name="ContactEmail" value="{{ $supplier->ContactEmail }}" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
             </div>
 
-            <!-- Stock Quantity -->
+            <!-- Phone Number -->
             <div class="form-group">
-              <label for="stockQuantity" class="block text-lg font-medium text-gray-700">Stock Quantity</label>
-              <input type="number" id="stockQuantity" name="StockQuantity" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
+              <label for="phoneNumber" class="block text-lg font-medium text-gray-700">Phone Number</label>
+              <input type="text" id="phoneNumber" name="PhoneNumber" value="{{ $supplier->PhoneNumber }}" pattern="\d{10}" title="Phone number must be exactly 10 digits" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
             </div>
 
-            <!-- Reorder Level -->
+            <!-- Address -->
             <div class="form-group">
-              <label for="reorderLevel" class="block text-lg font-medium text-gray-700">Reorder Level</label>
-              <input type="number" id="reorderLevel" name="ReorderLevel" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>
+              <label for="address" class="block text-lg font-medium text-gray-700">Address</label>
+              <textarea id="address" name="Address" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 input-focus" required>{{ $supplier->Address }}</textarea>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="flex justify-between space-x-4 mt-6">
-            <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 rounded-lg hover:bg-indigo-500">Add Product</button>
-            <a href="{{ route('products.index') }}" class="w-full text-center bg-gray-300 text-gray-700 font-bold py-2 rounded-lg hover:bg-gray-400">Cancel</a>
+            <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 rounded-lg hover:bg-indigo-500">Update Supplier</button>
+            <a href="{{ route('suppliers.index') }}" class="w-full text-center bg-gray-300 text-gray-700 font-bold py-2 rounded-lg hover:bg-gray-400">Cancel</a>
           </div>
         </form>
       </div>
@@ -123,9 +124,15 @@
     if (successNotification) {
       const okButton = document.getElementById('okButton');
       okButton.addEventListener('click', function() {
-        window.location.href = "{{ route('products.index') }}";
+        window.location.href = "{{ route('suppliers.index') }}";
       });
     }
+
+    // Ensure phone number input allows only digits and limits to 10 characters
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    phoneNumberInput.addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    });
   </script>
 </body>
 </html>

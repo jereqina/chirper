@@ -33,6 +33,7 @@ class ProductController extends Controller
             'ProductName' => 'required|string|max:255',
             'UnitPrice' => 'required|numeric',
             'StockQuantity' => 'required|integer',
+            'ReorderLevel' => 'required|integer',
         ]);
 
         Product::create($validated);

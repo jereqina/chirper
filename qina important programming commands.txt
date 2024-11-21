@@ -36,3 +36,11 @@ github_pat_11BM4V37Q0BDLlqD3HPmul_FgULVRs7JNUM97BZHYQIQWKsGqkfnpNiF3cY4AQyNtT2K3
   git config --global user.name "jereqina"
 
 git add .
+git commit -m "posting product data to the database"
+git status
+git push
+
+git checkout -b products
+
+
+https://github.com/jereqina/chirper/settings/access
